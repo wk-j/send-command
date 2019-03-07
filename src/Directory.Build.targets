@@ -1,0 +1,13 @@
+<Project>
+    <PropertyGroup>
+        <PackAsTool>true</PackAsTool>
+        <ToolCommandName>wk-send-command</ToolCommandName>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <LangVersion>7.3</LangVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="System.CommandLine.DragonFruit" Version="0.1.0-alpha-63724-02" />
+        <PackageReference Include="Dapper" Version="1.60.1" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.0" />
+    </ItemGroup>
+</Project>
