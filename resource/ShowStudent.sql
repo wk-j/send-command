@@ -1,0 +1,1 @@
+select "Id", "Name", substring("Profile1", 0, 30) as "Profile" from "Students" limit 10

@@ -7,13 +7,13 @@ using System.Dynamic;
 using System.Linq;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace SendCommand {
 
     enum Command {
         Execute,
-        Query,
-        Insert
+        Query
     }
 
     class Program {
@@ -31,6 +31,7 @@ namespace SendCommand {
         }
 
         static void Main(
+            FileInfo file,
             string host = "localhost",
             string database = "postgres",
             int port = 5432,
@@ -45,10 +46,20 @@ namespace SendCommand {
                 connection.Open();
 
                 if (command == Command.Query)
-                    Query(connection, sql);
-                if (command == Command.Insert) { }
+                    if (file != null && file.Exists) {
+                        var text = File.ReadAllText(file.FullName);
+                        Query(connection, text);
+                    } else {
+                        Query(connection, sql);
+                    }
+
                 if (command == Command.Execute) {
-                    Execute(connection, sql);
+                    if (file != null && file.Exists) {
+                        var text = File.ReadAllText(file.FullName);
+                        Execute(connection, text);
+                    } else {
+                        Execute(connection, sql);
+                    }
                 }
             }
         }

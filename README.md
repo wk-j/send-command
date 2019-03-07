@@ -17,4 +17,12 @@ dotnet tool install -g wk.SendCommand
 wk-send-command \
     --database FullTextSearch \
     --sql 'select "Id", "Name", substring("Profile1", 0, 30) as "Profile" from "Students" limit 10'
+
+wk-send-command \
+    --database FullTextSearch \
+    --sql "select to_tsvector('english', 'This will also find related word such ') @@ to_tsquery('english', 'words')"
+
+wk-send-command \
+    --database FullTextSearch \
+    --file resource/ShowStudent.sql
 ```
