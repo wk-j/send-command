@@ -19,7 +19,7 @@ namespace SendCommand {
     class Program {
 
         static bool Query(NpgsqlConnection connection, string command) {
-            var data = connection.Query<dynamic>(command).ToList();
+            var data = connection.Query<dynamic>(command).Take(100);
             DynamicTable.From(data).Write();
             return true;
         }
@@ -40,7 +40,7 @@ namespace SendCommand {
             Command command = Command.Query,
             string password = "1234") {
 
-            var conn = $"Host={host};Database={database};User Id={user};Password={password}";
+            var conn = $"Host={host};Database={database};Port={port};User Id={user};Password={password}";
 
             using (var connection = new NpgsqlConnection(conn)) {
                 connection.Open();
