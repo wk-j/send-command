@@ -1,6 +1,18 @@
 wk-send-command
-    --file http/ShowTable.sql | bat -l csv
+--file http/ShowTable.sql | bat -l csv
 
 // comment
 wk-send-command
-    --file http/ShowTable.sql
+--file http/ShowTable.sql
+
+// comment
+
+wk-send-command
+--database 'FullTextSearch'
+--sql "select to_tsvector('english', 'This will also find related word such ') @@ to_tsquery('english', 'words')"
+
+// build
+wk-screen -c 'd-cake Pack'
+
+// install
+wk-screen -c 'd-cake Install'
