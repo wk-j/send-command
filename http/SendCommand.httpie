@@ -1,0 +1,6 @@
+wk-send-command
+    --file http/ShowTable.sql | bat -l csv
+
+// comment
+wk-send-command
+    --file http/ShowTable.sql
