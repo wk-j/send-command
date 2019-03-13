@@ -18,9 +18,10 @@ namespace SendCommand {
 
     class Program {
 
-        static bool Query(NpgsqlConnection connection, string command) {
-            var data = connection.Query<dynamic>(command).Take(100);
-            DynamicTable.From(data).Write();
+        static bool Query(NpgsqlConnection connection, string command, int limit) {
+            var data = connection.Query<dynamic>(command).Take(limit);
+            var format = Format.Minimal;
+            DynamicTable.From(data).Write(format);
             return true;
         }
 
@@ -36,6 +37,7 @@ namespace SendCommand {
             string database = "postgres",
             int port = 5432,
             string user = "postgres",
+            int limit = 20,
             string sql = "",
             Command command = Command.Query,
             string password = "1234") {
@@ -45,15 +47,17 @@ namespace SendCommand {
             using (var connection = new NpgsqlConnection(conn)) {
                 connection.Open();
 
-                if (command == Command.Query)
+                if (command == Command.Query) {
+                    Console.WriteLine();
                     if (file != null && file.Exists) {
                         var text = File.ReadAllText(file.FullName);
-                        Query(connection, text);
+                        Query(connection, text, limit);
                     } else {
-                        Query(connection, sql);
+                        Query(connection, sql, limit);
                     }
-
+                }
                 if (command == Command.Execute) {
+                    Console.WriteLine();
                     if (file != null && file.Exists) {
                         var text = File.ReadAllText(file.FullName);
                         Execute(connection, text);

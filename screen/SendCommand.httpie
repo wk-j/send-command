@@ -1,14 +1,10 @@
-wk-send-command
---file http/ShowTable.sql | bat -l csv
-
 // comment
 wk-send-command
---file http/ShowTable.sql
+--file screen/ShowTable.sql
 
 // comment
 
 wk-send-command
---database 'FullTextSearch'
 --sql "select to_tsvector('english', 'This will also find related word such ') @@ to_tsquery('english', 'words')"
 
 // build
