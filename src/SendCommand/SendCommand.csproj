@@ -5,6 +5,6 @@
         <PackageId>wk.SendCommand</PackageId>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="wk.DynamicTables" Version="19.3.7.1154" />
+        <PackageReference Include="wk.DynamicTables" Version="19.3.16.1656" />
     </ItemGroup>
 </Project>
