@@ -8,6 +8,7 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
     <ItemGroup>
+        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.4" />
         <PackageReference Include="wk.DynamicTables" Version="19.3.16.1656" />
         <PackageReference Include="System.CommandLine.DragonFruit" Version="0.3.0-alpha.20574.7" />
         <PackageReference Include="Dapper" Version="2.0.78" />
