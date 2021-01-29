@@ -1,7 +1,8 @@
 ## Send Command
 
-[![Build Status](https://dev.azure.com/wk-j/send-command/_apis/build/status/wk-j.send-command?branchName=master)](https://dev.azure.com/wk-j/send-command/_build/latest?definitionId=23&branchName=master)
+[![Actions](https://github.com/wk-j/send-command/workflows/NuGet/badge.svg)](https://github.com/wk-j/send-command/actions)
 [![NuGet](https://img.shields.io/nuget/v/wk.SendCommand.svg)](https://www.nuget.org/packages/wk.SendCommand)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/wk.SendCommand.svg)](https://www.nuget.org/packages/wk.SendCommand)
 
 Send command to PostgreSQL server
 

@@ -1,10 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <TargetFramework>net5.0</TargetFramework>
         <PackageId>wk.SendCommand</PackageId>
+        <PackAsTool>true</PackAsTool>
+        <ToolCommandName>wk-send-command</ToolCommandName>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="wk.DynamicTables" Version="19.3.16.1656" />
+        <PackageReference Include="System.CommandLine.DragonFruit" Version="0.3.0-alpha.20574.7" />
+        <PackageReference Include="Dapper" Version="2.0.78" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.11" />
     </ItemGroup>
 </Project>
